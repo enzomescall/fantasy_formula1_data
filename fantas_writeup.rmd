@@ -1,0 +1,33 @@
+---
+title: "Analysing Fantasy F1 Data"
+author: "Enzo Mescall"
+date: Sys.date()
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+## Data
+
+The data is downloaded from the following two google sheets:
+
+Price: `https://docs.google.com/spreadsheets/d/1b5486fzknvQgXJxPuS7U88HwMYLrz-EfdfTO3-w5qx0/pub?output=csv`
+Points: `docs.google.com/spreadsheets/d/1r4Cqm5E8pyER3nXix_A05SD3-EMusJZtk3XZAeFexvg/pub?output=csv`
+
+```{r cars}
+price_csv = read.csv("2022 Prices - Prices.csv")
+points_csv = read.csv("2022 Standings - HomePage.csv")
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
