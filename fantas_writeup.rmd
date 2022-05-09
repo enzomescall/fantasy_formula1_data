@@ -12,22 +12,30 @@ library(tidyverse)
 
 ## Data
 
-The data is downloaded from the following two google sheets:
+The data is downloaded from the following two Google sheets:
 
 Price: `https://docs.google.com/spreadsheets/d/1b5486fzknvQgXJxPuS7U88HwMYLrz-EfdfTO3-w5qx0/pub?output=csv`
 Points: `docs.google.com/spreadsheets/d/1r4Cqm5E8pyER3nXix_A05SD3-EMusJZtk3XZAeFexvg/pub?output=csv`
 
-```{r cars}
+```{r csv}
 price_csv = read.csv("2022 Prices - Prices.csv")
 points_csv = read.csv("2022 Standings - HomePage.csv")
 ```
 
-## Including Plots
+## Cleaning up the dataframes
 
-You can also embed plots, for example:
+```{r}
+price_tidy = price_csv %>%
+  select(c(Name:PriceChangeFromStart))
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+price_drivers = price_tidy[c(1:20),]
+price_constructors = price_tidy[c(21:30),]
+
+points_tidy = points_csv %>%
+  select(c(DriverX:Total)) %>%
+  rename(Name = DriverX)
+
+points_drivers = points_tidy[c(1:20),]
+points_constructors = points_tidy[c(22:31),]
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
