@@ -39,3 +39,4 @@ points_drivers = points_tidy[c(1:20),]
 points_constructors = points_tidy[c(22:31),]
 ```
 
+Goal: get data from free practices and run a regression on fantasy points
